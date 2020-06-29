@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="cn.sxt.pojo.Role" table="t_role">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name"/>
+		<set name="funcs" table="t_role_func">
+			<!-- 是当前类在关联表中的外键列名 -->
+			<key column="rid"></key>
+			<!-- 当前类所对应的类 在关联表中的外键列名 -->
+			<many-to-many column="fid" class="cn.sxt.pojo.Func"/>
+		</set>
+	</class>
+</hibernate-mapping>
